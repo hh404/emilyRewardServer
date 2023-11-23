@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <script>
+        // JavaScript 代码将放在这里
+    </script>
+</head>
+<body>
+    <h1>Update Current Level</h1>
+    <form action="/api/update-level" method="post">
+        <input type="number" name="level" required>
+        <button type="submit">Update Level</button>
+    </form>
+    <hr> <!-- 分隔符 -->
+    <form action="/api/update-settings" method="post">
+        <div>
+            <label>Current Level:</label>
+            <input type="number" name="currentLevel" required>
+        </div>
+        <div>
+            <label>Total Time (in seconds):</label>
+            <input type="number" name="totalTime" required>
+        </div>
+        <div>
+            <label>Add Time for 5 Min Button (in seconds):</label>
+            <input type="number" name="addTime5Min" required>
+        </div>
+        <div>
+            <label>Add Time for 10 Min Button (in seconds):</label>
+            <input type="number" name="addTime10Min" required>
+        </div>
+        <button type="submit">Update Settings</button>
+    </form>
+    <script>
+        window.onload = function() {
+            fetch('/api/settings')
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector('input[name="currentLevel"]').value = data.currentLevel;
+                    document.querySelector('input[name="totalTime"]').value = data.totalTime;
+                    document.querySelector('input[name="addTime5Min"]').value = data.addTime5Min;
+                    document.querySelector('input[name="addTime10Min"]').value = data.addTime10Min;
+                })
+                .catch(error => console.error('Error:', error));
+        };
+    </script>
+</body>
+</html>

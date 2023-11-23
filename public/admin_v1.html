@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>Update Current Level</h1>
+    <form action="/api/update-level" method="post">
+        <input type="number" name="level" required>
+        <button type="submit">Update Level</button>
+    </form>
+    <form action="/api/update-settings" method="post">
+       <div>
+			<input type="number" name="currentLevel" required>
+			<button type="submit">Update Level</button>
+	   </div>
+	   <div>
+            <label>Total Time (in seconds):</label>
+            <input type="number" name="totalTime" required>
+        </div>
+        <div>
+            <label>Add Time for 5 Min Button (in seconds):</label>
+            <input type="number" name="addTime5Min" required>
+        </div>
+        <div>
+            <label>Add Time for 10 Min Button (in seconds):</label>
+            <input type="number" name="addTime10Min" required>
+        </div>
+        <button type="submit">Update Settings</button>
+    </form>
+</body>
+</html>
